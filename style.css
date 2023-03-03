@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+:root {
+  --Orange: hsl(25, 97%, 53%);
+  --primary-text: hsl(0, 0%, 100%);
+  --hover-clr: hsl(217, 12%, 63%);
+  --secondary-text: hsl(216, 12%, 54%);
+  --icon-clr: hsl(215, 15%, 23%);
+  --container-clr: hsl(213, 19%, 18%);
+  --bg-clr: hsl(216, 12%, 8%);
+
+  --regular: 400;
+  --bold: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  min-height: 100vh;
+}
+
+.wrapper {
+  background-color: var(--bg-clr);
+  min-height: 100vh;
+  padding-inline: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: var(--container-clr);
+  padding: 2rem;
+  border-radius: 2.5em;
+  max-width: 375px;
+}
+.hidden {
+  display: none;
+}
+.star-icon {
+  background-color: var(--icon-clr);
+  height: 39px;
+  width: 39px;
+  border-radius: 50%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.star-icon > img {
+  height: 13px;
+  width: 13px;
+}
+
+.title {
+  color: var(--primary-text);
+  font-size: 2.5rem;
+  font-weight: var(--bold);
+  margin-bottom: 1rem;
+}
+
+.visible .request {
+  color: var(--hover-clr);
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.selections {
+  margin-top: 2rem;
+}
+
+.selections > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.selections > ul > li {
+  background-color: var(--icon-clr);
+  height: 43px;
+  border-radius: 50%;
+  width: 43px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.orange-col {
+  background-color: var(--Orange) !important;
+  color: var(--primary-text) !important;
+}
+
+.selections > ul > li:hover {
+  background-color: var(--secondary-text);
+}
+.selections > ul > li:active {
+  background-color: var(--Orange);
+}
+.selections > ul > li:hover span {
+  color: var(--primary-text);
+}
+.selections > ul > li > span {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--hover-clr);
+  border-radius: 50%;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.btn {
+  border: none;
+  background-color: var(--Orange);
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.3rem;
+  color: var(--primary-text);
+  text-transform: uppercase;
+  font-weight: var(--bold);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+@media (min-width: 350px) {
+  .container {
+    padding: 3.5rem 3rem;
+  }
+  .star-icon {
+    height: 45px;
+    width: 45px;
+    margin-bottom: 3rem;
+  }
+  .star-icon > img {
+    height: 15px;
+    width: 15px;
+  }
+  .title {
+    font-size: 2.8rem;
+    font-weight: var(--regular);
+  }
+  .visible .request {
+    font-size: 1.5rem;
+    line-height: 1.7;
+  }
+  .selections {
+    margin-top: 2.3rem;
+  }
+  .selections > ul > li {
+    height: 50px;
+    width: 50px;
+  }
+  .selections > ul > li > span {
+    font-size: 1.8rem;
+  }
+  .btn {
+    padding: 1.1rem;
+    font-weight: var(--regular);
+    margin-top: 3rem;
+  }
+}
+.btn:hover {
+  background-color: var(--primary-text);
+  color: var(--Orange);
+}
+.btn:active {
+  opacity: 0.8;
+}
+
+/* end thanks container */
+.end-thanks {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.end-thanks .orange-para {
+  color: var(--Orange);
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  background-color: var(--icon-clr);
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  border-radius: 1.5rem;
+}
+
+.thanks {
+  font-size: 2.3rem;
+  color: var(--primary-text);
+  margin-top: 2rem;
+  font-weight: var(--bold);
+}
+.end-thanks p:last-child {
+  color: var(--secondary-text);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 350px) {
+  .end-thanks .orange-para {
+    margin-top: 2.5rem;
+  }
+  .thanks {
+    font-size: 3rem;
+    margin-top: 3.5rem;
+  }
+  .end-thanks p:last-child {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  background-color: var(--bg-clr);
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}

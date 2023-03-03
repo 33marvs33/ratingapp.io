@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+
+</head>
+<body>
+
+  <section class="wrapper">
+    <div class="container">
+      <div class="visible">
+        <span class="star-icon">
+        <img src="/images/icon-star.svg" alt="star-icon">
+      </span>
+      <h1 class="title">How did we do?</h1>
+      <p class="request">Please let us know how we did with your support request. All feedback is appreciated 
+  to help us improve our offering!</p>
+
+        <!-- selections -->
+        <div class="selections">
+          <ul role="list">
+         <li><span>1</span></li>
+         <li><span>2</span></li>
+         <li><span>3</span></li>
+         <li><span>4</span></li>
+         <li><span>5</span></li>
+          </ul>
+        </div>
+
+        <!-- submit button -->
+        <button class="btn">submit</button>
+      </div>
+      
+      <div class="end-thanks hidden">
+        <img src="/images/illustration-thank-you.svg" alt="illustration-thank-you">
+
+        <p class="orange-para">You Selected <span class="selected">4</span> out of 5</p>
+
+        <h2 class="thanks">Thank you!</h2>
+        <p> We appreciate you taking the time to give a rating. If you ever need more support, 
+  don’t hesitate to get in touch!</p>
+      </div>
+      
+    </div>
+    
+  
+  </section>
+<div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+ 
+<script>
+  let chosenRate = null;
+const rates = document.querySelectorAll('li');
+const submitBtn = document.querySelector('.btn');
+const ratingdiv = document.querySelector('.visible');
+const thanksDiv = document.querySelector('.end-thanks');
+const selected = document.querySelector('.selected');
+
+
+for(let i=0;i<rates.length;i++) {
+  rates[i].addEventListener('click', () => {
+    const target = rates[i].firstChild.innerText;
+    chosenRate = target
+    for(let j=0; j<rates.length;j++) {
+      if(parseInt(target) >= parseInt(rates[j].firstChild.innerText)) {
+        rates[j].classList.add('orange-col')
+        rates[j].firstChild.classList.add('orange-col')
+      }else {
+        rates[j].classList.remove('orange-col')
+        rates[j].firstChild.classList.remove('orange-col')
+      }
+    }
+
+  })
+}
+
+submitBtn.addEventListener('click', () => {
+  if(chosenRate == null) {
+    alert('select rating')
+    return
+  }else {
+    setTimeout(() => {
+      ratingdiv.classList.add('hidden');
+        thanksDiv.classList.remove('hidden');
+        selected.innerText = chosenRate
+    },1000)
+    
+  }
+  
+})
+
+</script>
+
+</body>
+</html>
